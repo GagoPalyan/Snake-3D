@@ -55,18 +55,22 @@
 }
 @media (max-width: 480px) {
   .gameBox {
-    max-height: 100vh;
+    height: calc(100dvh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .page {
+    width: 100%;
+    height: 100dh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-height: calc(100vh - 50px);
   }
   .block {
     width: 100%;
-    padding-top: 10px;
+    height: 100dvh;
   }
   .foodScoreRound,
   .recordScoreCup {
@@ -150,6 +154,4 @@
   .leaf-deco {
     display: none;
   }
-}
-
-/*# sourceMappingURL=media.css.map */
+}/*# sourceMappingURL=media.css.map */
