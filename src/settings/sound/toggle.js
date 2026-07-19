@@ -1,16 +1,17 @@
-import { buttons } from "../../ui/buttons.js";
+import { buttons } from '../../ui/buttons.js';
 
 export function getSound() {
-  return localStorage.getItem("soundOn") === "true";
+	return localStorage.getItem('soundOn') === 'true';
 }
 
 export function toggleSound() {
-  const val = !getSound();
-  localStorage.setItem("soundOn", val);
-  return val;
+	const val = !getSound();
+	localStorage.setItem('soundOn', val);
+	return val;
 }
 
 export function renderSound() {
-  buttons.btnVolume.classList.toggle("muted", !getSound());
+	buttons.btnVolume.classList.toggle('muted', !getSound());
 }
+
 renderSound();

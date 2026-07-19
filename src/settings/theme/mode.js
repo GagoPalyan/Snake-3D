@@ -1,30 +1,30 @@
-import { buttons } from "../../ui/buttons.js";
-import { THEME } from "../../utils/constants.js";
+import { buttons } from '../../ui/buttons.js';
+import { THEME } from '../../utils/constants.js';
 
-let currentTheme = localStorage.getItem("theme") || "light";
+let currentTheme = localStorage.getItem('theme') || 'light';
 let selectedTheme = currentTheme;
 let isToggleOn = false;
 
 export function themeMode() {
-  applyTheme(currentTheme);
+	applyTheme(currentTheme);
 
-  if (!isToggleOn) {
-    buttons.themeToggle.addEventListener("click", () => {
-      selectedTheme = selectedTheme === "dark" ? "light" : "dark";
-      applyTheme(selectedTheme);
-    });
-    isToggleOn = true;
-  }
+	if (!isToggleOn) {
+		buttons.themeToggle.addEventListener('click', () => {
+			selectedTheme = selectedTheme === 'dark' ? 'light' : 'dark';
+			applyTheme(selectedTheme);
+		});
+		isToggleOn = true;
+	}
 
-  return {
-    getSelectedTheme: () => selectedTheme,
-    getCurrentTheme: () => currentTheme,
-    setCurrentTheme: (theme) => currentTheme = theme,
-    resetSelectedTheme: () => selectedTheme = currentTheme,
-  };
+	return {
+		getSelectedTheme: () => selectedTheme,
+		getCurrentTheme: () => currentTheme,
+		setCurrentTheme: (theme) => (currentTheme = theme),
+		resetSelectedTheme: () => (selectedTheme = currentTheme),
+	};
 }
 
 export function applyTheme(theme) {
-  document.body.classList.toggle("dark", theme === THEME.dark);
-  document.body.classList.toggle("light", theme === THEME.light);
+	document.body.classList.toggle('dark', theme === THEME.dark);
+	document.body.classList.toggle('light', theme === THEME.light);
 }
